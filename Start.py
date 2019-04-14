@@ -37,7 +37,7 @@ def main():
     for char in print7:
         sys.stdout.write(char)
         sys.stdout.flush()
-        time.sleep(0.050)
+        time.sleep(0.01)
     time.sleep(1)
     shuffle(spurningar)
     for spurning, rettsvar in spurningar:
@@ -46,6 +46,7 @@ def main():
             counter += 1
 
     Teljari += kall.nidurstada(counter, len(spurningar))
+    time.sleep(4)
 
     #Kallið fyrir leikur2
     print("\n" * get_terminal_size().lines, end='')
@@ -61,6 +62,7 @@ def main():
         Útskrift = True
     if Útskrift is True:
         Teljari += 1
+    time.sleep(4)
 
     #Kallið fyrir leikur3
     print("\n" * get_terminal_size().lines, end='')
@@ -73,15 +75,46 @@ def main():
 
     # Til að spara forritun átti maður ekki séns á að ná eðlisfræðinni
     # Bætum mögulega við prófi í eðlisfræði fyrir næsta sprett
-    if namskeid1.lower() == 'e' or namskeid2.lower() == 'e':
-        print('Aldeilis mistök sem þú gerðir að velja Eðlisfræði prófið.')
-        print('Þú áttir aldrei séns og fékkst núll í prófinu')
 
     if namskeid1.lower() == 'l' or namskeid2.lower() =='l':
         einingar = einingar+6*kall.Lprof()
-    print('Þú endaðir með '+ str(einingar) + " einingar, til hamingju! Hjálpaðu næsta nemanda að útskrifast")
+
+    if namskeid1.lower() == 'e' or namskeid2.lower() == 'e':
+        print65='\nAldeilis mistök sem þú gerðir að velja Eðlisfræði prófið.\n'
+        for char in print65:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+        time.sleep(1)
+        print66='\nÞú áttir aldrei séns og fékkst núll í prófinu.\n'
+        for char in print66:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+        time.sleep(1)
+
+    print67= "\n"+'Þú þurftir 12 einingar til að útskrifa Aron og endaðir með '+ str(einingar) + " einingar.\n"
+    for char in print67:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.01)
+    time.sleep(1)
     if einingar == 12:
         Teljari += 1
+        print68 = "\nTil hamingju, þú útskrifaðir Aron!" + "\n\nHjálpaðu næsta nemanda að útskrifast.\n\n"
+        for char in print68:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+        time.sleep(1)
+    else:
+        print69 = "\nÞví miður, þú náðir ekki að útskrifa Aron :(" + "\n\nHjálpaðu næsta nemanda að útskrifast.\n\n"
+        for char in print69:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+        time.sleep(1)
+    time.sleep(4)
 
     #Kallið fyrir leikur4
     print("\n" * get_terminal_size().lines, end='')
@@ -91,10 +124,29 @@ def main():
     if har>20:
         har -= kall.HaskoliStartintro()
     kall.Nidurstada(har)
+    if har >50:
+        Teljari += 1
 
     #Nú viljum við taka allt saman til að birta niðurstöður leikjanna
-    print("\n" * get_terminal_size().lines, end='')
-    print(nafn1 + " þú útskrifaðir " + str(Teljari) + " af 4 nemendum")
+    time.sleep(1)
+    printlok1 = nafn1 + " þú útskrifaðir " + str(Teljari) + " af 4 nemendum.\n"
+    for char in printlok1:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.01)
+    time.sleep(1)
+    if Teljari == 4:
+        printlok2 = "Vel gert! Það er ekki hægt að gera betur en þetta.\n"
+        for char in printlok2:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
+    else:
+        printlok3 = "Þetta var ekki alveg nógu vel gert, reyndu aftur að útskrifa alla.\n"
+        for char in printlok3:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.01)
 
 if __name__ == "__main__":
     main()
